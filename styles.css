@@ -1,0 +1,46 @@
+*, *::after, *::before{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.container{
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header styling */
+header{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  height: 15vh;
+  width: 100vw;
+  background-color: rgb(139, 90, 51,0.9);
+}
+
+#credit{
+  display: flex;
+  flex-direction: column;
+}
+
+#book{
+  height: 150px;
+  width: 150px;
+}
+
+#logo-font{
+  color: white;
+}
+
+
+/* main content styling */
+main{
+  height: 85vh;
+  width: 100vw;
+  background-color: rgb(255, 248, 220);
+}
+
+
+
