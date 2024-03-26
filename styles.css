@@ -62,7 +62,7 @@ header{
   width: 20px;
 }
 
-/* main content styling */
+/* main form content styling */
 main{
   height: 85vh;
   width: 100vw;
@@ -113,4 +113,15 @@ form > div > *{
 
 #add-Btn:active{
   background-color: rgb(51,153,102);
+}
+
+/* main display content styling */
+
+table{
+  border: 1px solid black;
+}
+
+th, td{
+  padding: 10px;
+  border: 1px solid black
 }
