@@ -30,3 +30,16 @@ function appendBook(book){
     myLibrary.push(book)
     console.log(myLibrary);
 }
+
+document.addEventListener("DOMContentLoaded", () => {
+    if(myLibrary.length === 0){
+        const noBooksRows = document.createElement("tr");
+        noBooksRows.id = "no-data-row"
+        const noBookData = document.createElement("td");
+        noBookData.id = "no-data";
+        noBookData.innerHTML = "Curiouser and curiouser! Looks like this list is<br> still waiting for its adventures to begin.<br> Ready to take the plunge down the<br> rabbit hole and add your first book?"
+        noBooksRows.append(noBookData);
+        const tableBody = document.querySelector("#tableBody");
+        tableBody.append(noBooksRows)
+    }
+})

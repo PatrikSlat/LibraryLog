@@ -118,10 +118,25 @@ form > div > *{
 /* main display content styling */
 
 table{
+  display: grid;
   border: 1px solid black;
 }
 
 th, td{
   padding: 10px;
   border: 1px solid black
+}
+
+#no-data-row{
+  display: grid;
+}
+
+#no-data-row {
+  display: grid;
+}
+
+#no-data {
+  grid-row: 1 / -1;
+  color: red;
+  padding-left: 15%;
 }
