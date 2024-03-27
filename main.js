@@ -3,10 +3,17 @@
 
 const bookForm = document.querySelector(".book-form");
 const myLibrary = []
+const noBooksRows = document.createElement("tr");
+noBooksRows.id = "no-data-row"
+const noBookData = document.createElement("td");
+noBookData.id = "no-data";
+const tableBody = document.querySelector("#tableBody");
+
+/* Event listeners */
 
 bookForm.addEventListener("submit", (e) => {
     e.preventDefault();
-    
+    checkList(myLibrary);
     const bookNameInput = document.querySelector("[name='book-name']").value;
     const bookAuthorInput = document.querySelector("[name='book-author']").value;
     const bookPagesInput = document.querySelector("[name='book-pages']").value;
@@ -17,7 +24,19 @@ bookForm.addEventListener("submit", (e) => {
     const newBook = new Book(bookNameInput, bookAuthorInput, bookPagesInput, bookStatusState);
     //console.log(bookAuthorInput, bookNameInput, bookStatus, bookPagesInput);
     appendBook(newBook);
+    displayBooks(myLibrary);
 });
+
+
+document.addEventListener("DOMContentLoaded", () => {
+    if(myLibrary.length === 0){
+        noBookData.innerHTML = "Curiouser and curiouser! Looks like this list is<br> still waiting for its adventures to begin.<br> Ready to take the plunge down the<br> rabbit hole and add your first book?"
+        noBooksRows.append(noBookData);
+        tableBody.append(noBooksRows);
+    };
+})
+
+/* Functions */
 
 function Book(bookName, bookAuthor, bookPages, bookStatus){
     this.bookName = bookName;
@@ -31,15 +50,16 @@ function appendBook(book){
     console.log(myLibrary);
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-    if(myLibrary.length === 0){
-        const noBooksRows = document.createElement("tr");
-        noBooksRows.id = "no-data-row"
-        const noBookData = document.createElement("td");
-        noBookData.id = "no-data";
-        noBookData.innerHTML = "Curiouser and curiouser! Looks like this list is<br> still waiting for its adventures to begin.<br> Ready to take the plunge down the<br> rabbit hole and add your first book?"
-        noBooksRows.append(noBookData);
-        const tableBody = document.querySelector("#tableBody");
-        tableBody.append(noBooksRows)
+function displayBooks(Array){
+    const bookArray = Array;
+    for(let i =0; i <= bookArray.length; i++){
+        const currentBook = bookArray[i];
+        console.log(currentBook);
+    };
+}
+
+function checkList(array){
+    if(array.length === 0){
+        tableBody.removeChild(noBooksRows)
     }
-})
+}
