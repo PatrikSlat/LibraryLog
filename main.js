@@ -2,6 +2,7 @@
 -> Get user data from form -> Create new book object -> display new object */
 
 const bookForm = document.querySelector(".book-form");
+const myLibrary = []
 
 bookForm.addEventListener("submit", (e) => {
     e.preventDefault();
@@ -11,9 +12,21 @@ bookForm.addEventListener("submit", (e) => {
     const bookPagesInput = document.querySelector("[name='book-pages']").value;
     const bookStatusCheckbox = document.querySelector("[name='status']");
 
-    const bookStatus = bookStatusCheckbox.checked ? true : false;
+    const bookStatusState = bookStatusCheckbox.checked ? true : false;
 
-    console.log(bookAuthorInput, bookNameInput, bookStatus, bookPagesInput);
+    const newBook = new Book(bookNameInput, bookAuthorInput, bookPagesInput, bookStatusState);
+    //console.log(bookAuthorInput, bookNameInput, bookStatus, bookPagesInput);
+    appendBook(newBook);
 });
 
+function Book(bookName, bookAuthor, bookPages, bookStatus){
+    this.bookName = bookName;
+    this.bookAuthor = bookAuthor;
+    this.bookPages = bookPages;
+    this.bookStatus = bookStatus;
+}
 
+function appendBook(book){
+    myLibrary.push(book)
+    console.log(myLibrary);
+}
