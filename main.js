@@ -13,7 +13,7 @@ const tableBody = document.querySelector("#tableBody");
 
 bookForm.addEventListener("submit", (e) => {
     e.preventDefault();
-    checkList(myLibrary);
+    checkList();
     const bookNameInput = document.querySelector("[name='book-name']").value;
     const bookAuthorInput = document.querySelector("[name='book-author']").value;
     const bookPagesInput = document.querySelector("[name='book-pages']").value;
@@ -29,11 +29,7 @@ bookForm.addEventListener("submit", (e) => {
 
 
 document.addEventListener("DOMContentLoaded", () => {
-    if(myLibrary.length === 0){
-        noBookData.innerHTML = "Curiouser and curiouser! Looks like this list is<br> still waiting for its adventures to begin.<br> Ready to take the plunge down the<br> rabbit hole and add your first book?"
-        noBooksRows.append(noBookData);
-        tableBody.append(noBooksRows);
-    };
+    checkList();
 })
 
 /* Functions */
@@ -58,8 +54,12 @@ function displayBooks(Array){
     };
 }
 
-function checkList(array){
-    if(array.length === 0){
+function checkList(){
+    if(myLibrary.length === 0){
+        noBookData.innerHTML = "Curiouser and curiouser! Looks like this list is<br> still waiting for its adventures to begin.<br> Ready to take the plunge down the<br> rabbit hole and add your first book?"
+        noBooksRows.append(noBookData);
+        tableBody.append(noBooksRows);
+    }else{
         tableBody.removeChild(noBooksRows)
-    }
+    };
 }
