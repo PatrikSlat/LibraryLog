@@ -124,7 +124,7 @@ table{
 
 th, td{
   padding: 10px;
-  border: 1px solid black
+  border: 1px solid black;
 }
 
 #no-data-row{
@@ -138,5 +138,20 @@ th, td{
 #no-data {
   grid-row: 1 / -1;
   color: red;
-  padding-left: 15%;
+  padding-left: 25%;
+}
+
+.delete-btn{
+  background-color: rgba(255, 66, 23, 0.9);
+  width: 100px;
+  padding: 10px;
+  outline: none;
+  cursor: pointer;
+  border-radius: 15px;
+  font-size: medium;
+  border: 1px solid black;
+}
+
+.delete-btn:active{
+  background-color: rgba(255, 66, 23, 0.7);
 }
